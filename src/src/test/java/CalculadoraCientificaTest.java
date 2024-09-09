@@ -25,6 +25,6 @@ class EcuacionDeRectaTest {
     @Test
     public void testRectaVertical() {
         String resultado = CalculadoraCientifica.ecuacionDeRecta(2, 3, 2, 5);
-        assertEquals("La pendiente es indefinida (x1 y x2 son iguales).", resultado);
+        assertEquals("¡¡ERROR DE CÁLCULO!!: El denominador no puede ser cero", resultado);
     }
 }
