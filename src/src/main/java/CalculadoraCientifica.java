@@ -4,13 +4,13 @@ class CalculadoraCientifica {
 
     }
 
-    public static double ecuacionDeRecta (double x1, double y1, double x2, double y2) {
+    public static String ecuacionDeRecta(double x1, double y1, double x2, double y2) {
         try {
-            String x = "x";
-            double pendiente = (y2 - y1)/(x2- x1);
+            double pendiente = ((y2 - y1) / (x2 - x1));
             double términoN = y1 - (pendiente * x1);
-            double ecuacion = x * pendiente + términoN;
+            return "y = " + pendiente + "x + " + términoN;
+        } catch (ArithmeticException e) {
+            return ("¡¡ERROR DE CÁLCULO!!: El denominador no puede ser cero");
         }
     }
-
 }
