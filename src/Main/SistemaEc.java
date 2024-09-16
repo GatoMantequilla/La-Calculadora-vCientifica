@@ -2,10 +2,22 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class SistemaEc {
-    public double[] despejarX(double [] coeficientes ){
-        coeficientes[2] = coeficientes[2]/coeficientes[0];
-        coeficientes[1] = (coeficientes[1]/coeficientes[0])*-1;
-        coeficientes[0] = 1;
+    public double[] despejarX(double[] coeficientes) {
+        if (coeficientes[0] == 0) {
+            throw new ArithmeticException("El coeficiente principal no puede ser cero.");
+        }
+        try {
+            coeficientes[2] = coeficientes[2] / coeficientes[0];
+            coeficientes[1] = (coeficientes[1] / coeficientes[0]) * -1;
+            coeficientes[0] = 1;
+        }
+        catch (ArithmeticException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+         catch (Exception e) {
+            System.err.println("Error inesperado: " + e.getMessage());
+        }
+
         return coeficientes;
     }
     public double[] resolver(double[] coeficientes){

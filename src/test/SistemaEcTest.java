@@ -3,21 +3,24 @@ import org.junit.jupiter.api.Test;
 
 public class SistemaEcTest {
 
-    // Pruebas para el método despejarX
+    //Se prueba que el metodo despejarX funciona en un caso normal
     @Test
     public void testDespejarX_Caso1() {
         SistemaEc sistema = new SistemaEc();
-        double[] coeficientes = {2, 4, 6};  // Coeficientes iniciales
-        double[] resultadoEsperado = {1, -2, 3};  // Resultado esperado después de despejar X
+        double[] coeficientes = {2, 4, 6};
+        double[] resultadoEsperado = {1, -2, 3};
         assertArrayEquals(resultadoEsperado, sistema.despejarX(coeficientes));
-    }
+        System.out.println("La prueba se realizo correctamente...");
 
+    }
+    //Se prueba que el metodo despejarX funciona en el caso extremo 0/0
     @Test
-    public void testDespejarX_Caso2() {
-        SistemaEc sistema = new SistemaEc();
-        double[] coeficientes = {5, 10, 15};  // Coeficientes iniciales
-        double[] resultadoEsperado = {1, -2, 3};  // Resultado esperado después de despejar X
-        assertArrayEquals(resultadoEsperado, sistema.despejarX(coeficientes));
+    public void testDespejarXThrowsArithmeticException() {
+        double[] coeficientes = {0, 2, 3};
+        ArithmeticException exception = assertThrows(ArithmeticException.class, () -> {
+            new SistemaEc().despejarX(coeficientes);
+        });
+        assertEquals("El coeficiente principal no puede ser cero.", exception.getMessage());
     }
 
     // Pruebas para el método resolver
