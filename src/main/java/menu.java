@@ -282,7 +282,7 @@ public class menu {
             case 3://Figuras geometricas
                 System.out.println("Ingrese la figura geométrica (cuadrado, rectángulo, círculo, esfera, cubo, cono): ");
                 System.out.println("Ingrese las dimensiones de la figura: ");
-                calcularFigurasGeometricas(leerString(), leerDouble(), leerDouble());
+                System.out.println(calcularFigurasGeometricas(leerString(), leerDouble(), leerDouble()));
                 break;
             case 4://Sistema ecuaciones lineales
                 double[] coeficientes = new double[6];
